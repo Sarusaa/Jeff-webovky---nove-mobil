@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeff webovky</title>
+ 
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+	<header class="hlavicka">
+		<img class="logo" src="logo drevene.png" alt="logo">
+
+		<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+		
+
+		<ul class="nav-links " id="navLinks">
+            <li><a href="index.html" class="active">Domů</a></li>
+			<li><a href="sortiment.html">Sortiment</a></li>
+			<li><a href="doprava.html">Doprava</a></li>
+            <li><a href="kontakty.html">Kontakty</a></li>
+        </ul>
+		</nav>
+
+	</header>
+ 
+	<main>
+<div class="hidden">
+<section class="hero">
+<div class="obsah-sekce">
+<h1>Vítejte na stránkách <span style="white-space: nowrap;">firmy BRATOMA-UH s.r.o.</span></h1>
+                <div class="hero-text">
+                    <p>Jsme společnost, která byla založena v roce 2021.</p>
+					<p>Zabýváme se distribucí chlazeného masa a mezinárodní  nákladní autodopravou nad 3,5t.</p>
+					<p>Naše společnost je pod dohledem Státní veterinární správy.</p>
+					<p>Veterinární registrační číslo pro zprostředkování uvádění živočišných produktů na trh: CZ72A02147.</p>
+					<p>Veterinární registrační číslo pro přepravu živočišných produktů: CZ 72730201.</p>
+					<p>Prodej a distribuce chlazeného masa:  V našem sortimentu naleznete chlazené kuřecí maso, chlazené vepřové maso, chlazené krůtí maso a chlazené kachní maso.</p>
+                </div>
+
+</div>
+</section>
+</div>
+</main>
+ 
+<footer class="paticka">
+    <section id="kontakt">
+    <div class="kontakty">
+        <div>Vaše spokojenost je pro nás největší odměnou.</div>
+    </div>
+    </section>
+</footer>
+ 
+	<script>
+	// Intersection Observer pro animace při scrollování
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("show");
+			} else {
+				entry.target.classList.remove("show");
+			}
+		});
+	});
+ 
+	document.querySelectorAll('.hidden').forEach(el => {
+		observer.observe(el);
+	});
+ 
+	// Vynucení scrollu nahoru při načtení stránky
+	if ('scrollRestoration' in history) {
+		history.scrollRestoration = 'manual';
+	}
+	window.onload = function() {
+		window.scrollTo(0, 0);
+	};
+ 
+	// Mobilní menu (Hamburger)
+	function toggleMenu() {
+		const nav = document.getElementById("navLinks");
+		const hamburger = document.getElementById("hamburger");
+		nav.classList.toggle("open");
+		hamburger.classList.toggle("open");
+	}
+ 
+	document.querySelectorAll(".nav-links a").forEach(link => {
+		link.addEventListener("click", () => {
+			document.getElementById("navLinks").classList.remove("open");
+			document.getElementById("hamburger").classList.remove("open");
+		});
+	});
+</script>
+ 
+</body>
+</html>
